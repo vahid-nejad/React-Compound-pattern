@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "window.zoomLevel": 1,
+    "prettier.printWidth": 70,
+    "editor.wordWrap": "bounded",
+    "editor.fontSize": 14
+  }
+}

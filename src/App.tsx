@@ -1,25 +1,32 @@
-import {
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-import { useState } from "react";
-import Posts from "./components/Posts";
-import UserList from "./components/UserList";
+import Card from "./components/Card";
+import CompoundCard from "./components/CompoundCard";
 
 function App() {
-  const queryClient = new QueryClient();
-  const [selectedUserId, setSelectedUserId] =
-    useState<number>(1);
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="p-5 grid grid-cols-2">
-        <UserList
-          selectedUserId={selectedUserId}
-          setSelectedUserId={setSelectedUserId}
-        />
-        <Posts selectetdUserId={selectedUserId} />
-      </div>
-    </QueryClientProvider>
+    <div className="flex justify-center items-center h-screen border flex-col gap-3 ">
+      <Card>
+        <img className="w-40" src="/sample.png" alt="" />
+
+        <p className="text-center text-sm p-2 text-slate-700">
+          Redux Tutorial
+        </p>
+
+        <p className="text-center p-2 text-green-600 text-sm">
+          39.00$
+        </p>
+
+        <button className="transition duration-75 bg-violet-600 text-white p-2 w-full hover:bg-violet-700 active:translate-y-1">
+          Add to Cart
+        </button>
+      </Card>
+
+      <CompoundCard>
+        <CompoundCard.Image src="/sample.png" />
+        <CompoundCard.Title>Redux Toolkit</CompoundCard.Title>
+        <CompoundCard.Price>39.00$</CompoundCard.Price>
+        <CompoundCard.CartButton>Add To Cart</CompoundCard.CartButton>
+      </CompoundCard>
+    </div>
   );
 }
 
